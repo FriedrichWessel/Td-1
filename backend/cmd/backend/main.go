@@ -37,7 +37,7 @@ func main() {
 func setupWebInterface() (<-chan Command) {
 	c := make(chan Command)
 	r := new(mux.Router)
-	r.HandleFunc("/GET/{id:[0-9]+}/{pos:[0-9]+}", func(w http.ResponseWriter, r *http.Request) {
+	r.HandleFunc("/set/{id:[0-9]+}/{pos:[0-9]+}", func(w http.ResponseWriter, r *http.Request) {
 		log.Printf("New HTTP connection\n")
 		vars := mux.Vars(r)
 		handleHttpClient(w, vars, c)
@@ -66,12 +66,10 @@ func handleHttpClient(w http.ResponseWriter, vars map[string]string, c chan<- Co
 			return
 		}
 
-		log.Printf("Sending...\n")
 		c <- Command {
 			ServoID: uint8(id),
 			Position: uint8(pos),
 		}
-		log.Printf("Sent\n")
 		http.Error(w, "Success", http.StatusOK)
 }
 

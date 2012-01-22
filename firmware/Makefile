@@ -1,4 +1,4 @@
-PROG=/dev/cu.SLAB_USBtoUART6
+PROG=/dev/cu.SLAB_USBtoUART7
 #PROG=/dev/ttyk.usbserial
 PROGNAME=avr910
 #PROGNAME=stk500v2

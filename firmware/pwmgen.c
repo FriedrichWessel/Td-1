@@ -76,7 +76,7 @@ void uart_init() {
 void init_pwm() {
 	uint8_t i ;
 	for(i = 0; i < NUM_PWM; i++)
-		set_pwm(i, 128);
+		set_pwm(i, 0);
 	return;
 }
 

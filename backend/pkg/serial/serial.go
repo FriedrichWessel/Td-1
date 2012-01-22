@@ -9,6 +9,7 @@ import (
 
 const (
 	BAUD_115200 = 115200
+	BAUD_9600 = 9600
 )
 
 func New(port string, baud int) (*os.File, error) {
