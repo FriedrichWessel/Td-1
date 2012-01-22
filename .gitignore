@@ -2,4 +2,5 @@
 *.hex
 *.elf
 _bin
+_obj
 /backend/cmd/backend/backend

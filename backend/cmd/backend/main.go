@@ -3,17 +3,18 @@ package main
 import (
 	"encoding/json"
 	"flag"
-	"fmt"
 	"log"
 	"net/http"
 	"net"
 	"code.google.com/p/gorilla/gorilla/mux"
 	"strconv"
+	"serial"
 )
 
 var (
 	webAddrFlag = flag.String("web", ":8080", "Address to start the webserver on")
 	sockAddrFlag = flag.String("sock", ":8181", "Address to start the socket on")
+	serialFlag = flag.String("serial", "/dev/cu.SLAB_USBtoUART", "Serial Port")
 )
 
 const (
@@ -127,7 +128,14 @@ func mergeChannels(c1, c2 <-chan Command) (<-chan Command) {
 }
 
 func handleCommand(c <-chan Command) {
+	f, e := serial.New(*serialFlag, serial.BAUD_115200)
+	if e != nil {
+		panic(e)
+	}
+	defer f.Close()
+
 	for cmd := range c {
-		fmt.Printf("%d => %d\n", cmd.ServoID, cmd.Position)
+		_, e = f.Write([]byte{cmd.ServoID, cmd.Position})
+		log.Printf("%d => %d\n", cmd.ServoID, cmd.Position)
 	}
 }
