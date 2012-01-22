@@ -46,6 +46,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\GUI\EmergencyOff.cs" />
      <Compile Include="Assets\Scripts\GUI\GamePadInteraction.cs" />
+     <Compile Include="Assets\Scripts\GUI\HTTPBackend.cs" />
      <Compile Include="Assets\Scripts\GUI\MasterSliderBehaviour.cs" />
      <Compile Include="Assets\Scripts\PlayModePersist\PPAssemblyLocator.cs" />
      <Compile Include="Assets\Scripts\asdfunity_modules\GUI_Module\Behaviours\AnimatedUVBehaviour.cs" />
