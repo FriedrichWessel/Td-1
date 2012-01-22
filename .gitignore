@@ -1,3 +1,5 @@
 *~
 *.hex
 *.elf
+_bin
+/backend/cmd/backend/backend
