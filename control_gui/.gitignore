@@ -1,0 +1,18 @@
+*~
+*.swp
+*.[568]
+.DS_Store
+unity_project/Temp/*
+unity_project/Library/*
+build/*
+!unity_project/Library/*.asset
+!unity_project/Library/AssetImportState
+!unity_project/Library/AssetVersioning.db
+!unity_project/Library/BuildPlayer.prefs
+!unity_project/Library/ScriptMapper
+!unity_project/Library/assetservercachev3
+!unity_project/Library/expandedItems
+!unity_project/Library/guidmapper
+!unity_project/Library/unity default resources
+!unity_project/Library/unity editor resources
+!unity_project/Library/metadata/
