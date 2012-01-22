@@ -28,6 +28,7 @@ type Command struct {
 
 
 func main() {
+	flag.Parse()
 	wc := setupWebInterface()
 	sc := setupSocketInterface()
 	c := mergeChannels(wc, sc)
@@ -43,6 +44,7 @@ func setupWebInterface() (<-chan Command) {
 		handleHttpClient(w, vars, c)
 	}).Methods("GET")
 	go func() {
+		log.Printf("Start serving on %s\n", *webAddrFlag)
 		e := http.ListenAndServe(*webAddrFlag, r)
 		if e != nil {
 			panic(e)
